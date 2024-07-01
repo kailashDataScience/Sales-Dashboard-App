@@ -87,8 +87,6 @@ fig_product_sales.update_layout(
     xaxis=dict(showgrid=False)
 )
 
-# st.plotly_chart(fig_product_sales)
-
 # Sales by hour
 sales_by_hour = df_selection.groupby('hour')[numeric_columns].sum()[['Total']]
 
@@ -106,23 +104,16 @@ fig_hourly_sales.update_layout(
     yaxis=dict(showgrid=False)
 )
 
-# st.plotly_chart(fig_hourly_sales)
-
-
 left_col, right_col = st.columns(2)
 left_col.plotly_chart(fig_product_sales, use_container_width=True)
 right_col.plotly_chart(fig_hourly_sales, use_container_width=True)
 
-
-
-
-
 hide_st_style = """ 
-                    <style>
-                        #MainMenu {visibility :hidden;}
-                        footer {visibility :hidden;}
-                        header {visibility :hidden;}
-                    </style>
+                <style>
+                    #MainMenu {visibility: hidden;}
+                    footer {visibility: hidden;}
+                    header {visibility: hidden;}
+                </style>
                 """
 
 st.markdown(hide_st_style, unsafe_allow_html=True)
